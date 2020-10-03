@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 
-public class Task : MonoBehaviour
+public class TaskMachine : MonoBehaviour
 {
     private TaskManager manager;
 
-    private void Start()
-    {
-        manager = TaskManager.instance;
-        manager.OnTaskSpawn(this);
-    }
+    private void Start() => manager = TaskManager.instance;
 
     public void AccessTask()
     {
@@ -17,7 +13,7 @@ public class Task : MonoBehaviour
 
     public void StopAccessingTask()
     {
-
+        // TODO(Andy): Unlock cursor and hide overlay UI canvas!
     }
 
     public void TaskSuccess() => manager.Success();
