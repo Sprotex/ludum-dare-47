@@ -8,6 +8,7 @@ public class CustomToggle : MonoBehaviour
     public Image overlayImage;
     public bool isOn = false;
     public UnityEvent<bool> OnToggle;
+    public TMPro.TextMeshProUGUI TMPText;
 
     public void CustomDisable() => isOn = false;
 
