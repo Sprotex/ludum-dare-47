@@ -3,6 +3,7 @@
 public class PlayerInteractor : MonoBehaviour
 {
     public Camera mainCamera;
+    public float interactingDistance;
 
     private void Update()
     {
@@ -13,7 +14,7 @@ public class PlayerInteractor : MonoBehaviour
 
     private void TryUseInteractableInFront()
     {
-        var maxDistance = 1f;
+        var maxDistance = interactingDistance;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var info, maxDistance))
         {
             var task = info.collider.GetComponent<TaskMachine>();
