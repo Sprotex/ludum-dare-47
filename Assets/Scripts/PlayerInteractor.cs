@@ -21,6 +21,5 @@ public class PlayerInteractor : MonoBehaviour
             if (task != null)
                 task.AccessTask();
         }
-            
     }
 }

@@ -4,16 +4,25 @@ public class TaskMachine : MonoBehaviour
 {
     private TaskManager manager;
 
+    public GameObject screenOverlay;
+    public GameObject playerCinemachineCamera;
+    public CursorLocker cursorLocker;
+
     private void Start() => manager = TaskManager.instance;
 
     public void AccessTask()
     {
-        print("Access");
+        screenOverlay.SetActive(true);
+        playerCinemachineCamera.SetActive(false);
+        cursorLocker.Unlock();
+        manager.StartTasks();
     }
 
     public void StopAccessingTask()
     {
-        // TODO(Andy): Unlock cursor and hide overlay UI canvas!
+        screenOverlay.SetActive(false);
+        playerCinemachineCamera.SetActive(true);
+        cursorLocker.Lock();
     }
 
     public void TaskSuccess() => manager.Success();

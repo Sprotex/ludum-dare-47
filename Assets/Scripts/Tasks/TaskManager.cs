@@ -17,7 +17,7 @@ public class TaskManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start()
+    public void StartTasks()
     {
         //var index = Random.Range(0, tasks.Length);
         var index = tasks.Length - 1;
