@@ -19,7 +19,8 @@ public class TaskManager : MonoBehaviour
 
     private void Start()
     {
-        var index = Random.Range(0, tasks.Length);
+        //var index = Random.Range(0, tasks.Length);
+        var index = 2;
         currentTask = tasks[index];
         currentTask.Setup();
     }

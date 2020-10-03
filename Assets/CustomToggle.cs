@@ -5,13 +5,11 @@ using UnityEngine.UI;
 public class CustomToggle : MonoBehaviour
 {
     public Image checkboxEnabledImage;
+    public Image overlayImage;
     public bool isOn = false;
     public UnityEvent<bool> OnToggle;
 
-    public void CustomDisable()
-    {
-        isOn = false;
-    }
+    public void CustomDisable() => isOn = false;
 
     public void OnClick()
     {
