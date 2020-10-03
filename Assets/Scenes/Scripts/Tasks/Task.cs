@@ -2,13 +2,24 @@
 
 public class Task : MonoBehaviour
 {
-    public void TaskSuccess()
+    private TaskManager manager;
+
+    private void Start()
     {
-        print("Task: Success!");
+        manager = TaskManager.instance;
+        manager.OnTaskSpawn(this);
     }
 
-    public void TaskFailure()
+    public void AccessTask()
     {
-        print("Task: Failed!");
+        print("Access");
     }
+
+    public void StopAccessingTask()
+    {
+
+    }
+
+    public void TaskSuccess() => manager.Success();
+    public void TaskFailure() => manager.Failure();
 }
