@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{e673a3de-6c24-42b5-ab05-bb26e2fa7413}">
+		<property name="assetPath">
+			<value>Audio/Voices/Ambience_voice_013.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.5886875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7b3bceda-fcd8-4b33-b632-974d61004d01}</destination>
+		</relationship>
+	</object>
+</objects>

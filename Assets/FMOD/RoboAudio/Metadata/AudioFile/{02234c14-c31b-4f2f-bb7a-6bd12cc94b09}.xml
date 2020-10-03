@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{02234c14-c31b-4f2f-bb7a-6bd12cc94b09}">
+		<property name="assetPath">
+			<value>Audio/UI/Correct_008.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.625</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7b3bceda-fcd8-4b33-b632-974d61004d01}</destination>
+		</relationship>
+	</object>
+</objects>

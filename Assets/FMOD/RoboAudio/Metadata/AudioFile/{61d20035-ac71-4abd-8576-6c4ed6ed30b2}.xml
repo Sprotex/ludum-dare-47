@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{61d20035-ac71-4abd-8576-6c4ed6ed30b2}">
+		<property name="assetPath">
+			<value>Audio/ComputerNoizess/Keyboard_002.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.10716666666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7b3bceda-fcd8-4b33-b632-974d61004d01}</destination>
+		</relationship>
+	</object>
+</objects>

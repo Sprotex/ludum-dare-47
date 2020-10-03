@@ -28,6 +28,21 @@
 	</object>
 	<object class="MixerBusPanner" id="{605563de-4990-4cda-abdd-21b6cd623474}" />
 	<object class="SFXReverbEffect" id="{65eb7cc1-3ff3-4167-be2e-e9573a524b49}">
+		<property name="HFDecayRatio">
+			<value>24.5</value>
+		</property>
+		<property name="diffusion">
+			<value>77</value>
+		</property>
+		<property name="lowShelfFrequency">
+			<value>270</value>
+		</property>
+		<property name="lowShelfGain">
+			<value>-11</value>
+		</property>
+		<property name="highCut">
+			<value>9000</value>
+		</property>
 		<property name="wetLevel">
 			<value>0</value>
 		</property>
