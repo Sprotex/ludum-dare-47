@@ -37,7 +37,7 @@ public class PlayerInteractor : MonoBehaviour
                 if (!manager.isRunning)
                     FocusOnObject(task.gameObject, task.accessText);
                 else
-                    FocusOnObject(null, "");
+                    FocusOnObject(null, "Press TAB to leave PC");
                 var isMouseClicked = Input.GetMouseButtonDown(0);
                 if (isMouseClicked)
                     task.AccessTask();
