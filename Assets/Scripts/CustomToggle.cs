@@ -9,6 +9,7 @@ public class CustomToggle : MonoBehaviour
     public bool isOn = false;
     public UnityEvent<bool> OnToggle;
     public TMPro.TextMeshProUGUI TMPText;
+    public Image colorImage;
 
     public void CustomDisable() => isOn = false;
 
