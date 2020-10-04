@@ -10,6 +10,11 @@ public class GameEnding : Interactable
     public DoorSounds sounds;
     public GameObject groupToDisable;
 
+    private void Start()
+    {
+        
+    }
+
     private IEnumerator Fadeout()
     {
         groupToDisable.SetActive(false);
@@ -29,8 +34,5 @@ public class GameEnding : Interactable
         }
     }
 
-    public override void AccessTask()
-    {
-        StartCoroutine(Fadeout());
-    }
+    public override void AccessTask() => StartCoroutine(Fadeout());
 }

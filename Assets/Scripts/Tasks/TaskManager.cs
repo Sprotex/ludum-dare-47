@@ -15,6 +15,7 @@ public class TaskManager : MonoBehaviour
     public bool isRunning;
     public TextMeshProUGUI completedTasksUGUI;
     public TaskSounds soundManager;
+    public Interactable door;
     private int completedTasks;
     private int taskIndex;
     private GeneralTask currentTask;
@@ -72,7 +73,10 @@ public class TaskManager : MonoBehaviour
             StartCoroutine(StartTask());
         }
         else
+        {
             screenEndingText.SetActive(true);
+            door.enabled = true;
+        }
     }
 
     public void Failure()

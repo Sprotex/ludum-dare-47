@@ -31,21 +31,21 @@ public class PlayerInteractor : MonoBehaviour
         var maxDistance = interactingDistance;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var info, maxDistance))
         {
-            var task = info.collider.GetComponent<Interactable>();
-            if (task != null)
+            var interactable = info.collider.GetComponent<Interactable>();
+            if (interactable != null && interactable.enabled)
             {
                 if (manager.CanBeRunAgain)
                 {
                     if (!manager.isRunning)
                     {
-                        FocusOnObject(task.gameObject, task.accessText);
+                        FocusOnObject(interactable.gameObject, interactable.accessText);
                     }
                     else
                         FocusOnObject(gameObject, "Press TAB to leave PC");
                 }
                 var isMouseClicked = Input.GetMouseButtonDown(0);
                 if (isMouseClicked)
-                    task.AccessTask();
+                    interactable.AccessTask();
             }
             else
                 FocusOnObject(null, "");
