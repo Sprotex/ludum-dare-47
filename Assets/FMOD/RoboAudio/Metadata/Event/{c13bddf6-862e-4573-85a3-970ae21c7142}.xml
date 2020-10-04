@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{9333baa2-563c-4eb8-8d8f-b0e969835a62}" />
 	<object class="GroupTrack" id="{4673fc39-8b3b-4b12-8929-531c693e63c4}">
 		<relationship name="modules">
-			<destination>{5c062d7b-e3d9-4d01-8715-2b6cd9af9905}</destination>
+			<destination>{118ebd05-a2fe-457e-b479-f59c73e573ef}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{2c537b54-3c76-453c-997e-de6c53fe2fb1}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{e68d140b-4ffc-48ba-9542-cedff95833a8}">
 		<relationship name="modules">
-			<destination>{5c062d7b-e3d9-4d01-8715-2b6cd9af9905}</destination>
+			<destination>{118ebd05-a2fe-457e-b479-f59c73e573ef}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{8d1b8950-8ba1-4f50-b5f9-cb867116a83b}">
@@ -88,12 +88,15 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3e79d18e-d5f6-4804-ae3d-dc6dee088074}" />
-	<object class="SingleSound" id="{5c062d7b-e3d9-4d01-8715-2b6cd9af9905}">
+	<object class="SingleSound" id="{118ebd05-a2fe-457e-b479-f59c73e573ef}">
 		<property name="length">
-			<value>46.222333333333331</value>
+			<value>53.696458333333332</value>
+		</property>
+		<property name="volume">
+			<value>3.5</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{10c0ab16-4a03-428b-bbf5-039cd29c9a96}</destination>
+			<destination>{615569ee-f7d5-4ece-8cb4-b867b0f11aa5}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{2c537b54-3c76-453c-997e-de6c53fe2fb1}">
@@ -119,10 +122,19 @@
 	<object class="MixerBusFader" id="{20ab3c59-0447-4608-ad6f-7e17c077b028}" />
 	<object class="MixerBusEffectChain" id="{b2d7d5aa-7d2b-44b2-b821-ca5cb4d61689}">
 		<relationship name="effects">
+			<destination>{f0e94363-23ea-42a0-be63-efceb48299b7}</destination>
 			<destination>{aaf61410-08aa-488b-b78f-70d1018b2249}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{deecd7ac-aa7a-4326-a9ac-e1c025e01275}" />
 	<object class="MixerBusFader" id="{bd4e5eeb-2375-4605-9495-0bd764fb96b6}" />
+	<object class="CompressorEffect" id="{f0e94363-23ea-42a0-be63-efceb48299b7}">
+		<property name="threshold">
+			<value>-11.5</value>
+		</property>
+		<property name="gain">
+			<value>8.5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{aaf61410-08aa-488b-b78f-70d1018b2249}" />
 </objects>
