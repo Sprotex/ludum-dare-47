@@ -4,9 +4,9 @@ public class TaskMachine : MonoBehaviour
 {
     private TaskManager manager;
 
-    public GameObject screenOverlay;
     public GameObject playerCinemachineCamera;
     public CursorLocker cursorLocker;
+    public string accessText;
 
     private void Start() => manager = TaskManager.instance;
 

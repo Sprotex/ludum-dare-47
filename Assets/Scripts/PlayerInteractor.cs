@@ -1,25 +1,56 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour
 {
     public Camera mainCamera;
     public float interactingDistance;
+    public TextMeshProUGUI noticeTextGUI;
 
-    private void Update()
+    private TaskManager manager;
+    private string currentNoticeText;
+    private GameObject focusedGameObject;
+    private GameObject lastFocusedGameObject;
+
+    private void Start()
     {
-        var isMouseClicked = Input.GetMouseButtonDown(0);
-        if (isMouseClicked)
-            TryUseInteractableInFront();
+        manager = TaskManager.instance;
+        noticeTextGUI.text = "";
+        lastFocusedGameObject = null;
+        focusedGameObject = null;
     }
 
-    private void TryUseInteractableInFront()
+    private void FocusOnObject(GameObject gameObject, string accessText)
+    {
+        currentNoticeText = accessText;
+        focusedGameObject = gameObject;
+    }
+
+    private void Update()
     {
         var maxDistance = interactingDistance;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var info, maxDistance))
         {
             var task = info.collider.GetComponent<TaskMachine>();
             if (task != null)
-                task.AccessTask();
+            {
+                if (!manager.isRunning)
+                    FocusOnObject(task.gameObject, task.accessText);
+                else
+                    FocusOnObject(null, "");
+                var isMouseClicked = Input.GetMouseButtonDown(0);
+                if (isMouseClicked)
+                    task.AccessTask();
+            }
+            else
+                FocusOnObject(null, "");
+        }
+        else
+            FocusOnObject(null, "");
+        if (lastFocusedGameObject != focusedGameObject)
+        {
+            lastFocusedGameObject = focusedGameObject;
+            noticeTextGUI.text = currentNoticeText;
         }
     }
 }
