@@ -62,4 +62,14 @@ public class GridTask : MonoBehaviour
             }
         manager.Success();
     }
+
+    public void Teardown2()
+    {
+        for (var x = 0; x < 3; ++x)
+            for (var y = 0; y < 3; ++y)
+            {
+                var index = x + y * 3;
+                inputToggles[index].CustomDisable();
+            }
+    }
 }

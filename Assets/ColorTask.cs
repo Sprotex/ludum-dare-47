@@ -67,4 +67,14 @@ public class ColorTask : MonoBehaviour
         var isThisTileSelected = inputToggles[index].isOn;
         return isThisTileSelected != isThisTileWithCorrectAnswer;
     }
+
+    public void Teardown3()
+    {
+        for (var x = 0; x < 3; ++x)
+            for (var y = 0; y < 3; ++y)
+            {
+                var index = x + y * 3;
+                inputToggles[index].CustomDisable();
+            }
+    }
 }

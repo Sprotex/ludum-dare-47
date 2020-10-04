@@ -11,7 +11,11 @@ public class CustomToggle : MonoBehaviour
     public TMPro.TextMeshProUGUI TMPText;
     public Image colorImage;
 
-    public void CustomDisable() => isOn = false;
+    public void CustomDisable()
+    {
+        isOn = false;
+        checkboxEnabledImage.enabled = isOn;
+    }
 
     public void OnClick()
     {
