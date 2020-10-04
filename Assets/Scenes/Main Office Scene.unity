@@ -3178,7 +3178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accessText: Drink coffee
   manager: {fileID: 816304739}
-  soundEvent: event:/Step 2
+  soundEvent: event:/Coffee
 --- !u!1 &353533620
 GameObject:
   m_ObjectHideFlags: 0
