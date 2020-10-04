@@ -34,10 +34,15 @@ public class PlayerInteractor : MonoBehaviour
             var task = info.collider.GetComponent<TaskMachine>();
             if (task != null)
             {
-                if (!manager.isRunning)
-                    FocusOnObject(task.gameObject, task.accessText);
-                else
-                    FocusOnObject(null, "Press TAB to leave PC");
+                if (manager.CanBeRunAgain)
+                {
+                    if (!manager.isRunning)
+                    {
+                        FocusOnObject(task.gameObject, task.accessText);
+                    }
+                    else
+                        FocusOnObject(gameObject, "Press TAB to leave PC");
+                }
                 var isMouseClicked = Input.GetMouseButtonDown(0);
                 if (isMouseClicked)
                     task.AccessTask();

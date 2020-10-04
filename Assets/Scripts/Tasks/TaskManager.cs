@@ -1,16 +1,20 @@
 ﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
 {
     public static TaskManager instance;
     public GameObject screenIntroText;
+    public GameObject screenEndingText;
     public GameObject successImage;
     public GameObject failureImage;
     public GeneralTask[] tasks;
     public float delayAfterSuccess = 0.5f;
     [HideInInspector]
     public bool isRunning;
+    public TextMeshProUGUI completedTasksUGUI;
+    private int completedTasks;
     private int taskIndex;
     private GeneralTask currentTask;
 
@@ -26,7 +30,10 @@ public class TaskManager : MonoBehaviour
     {
         currentTask = null;
         taskIndex = 0;
+        completedTasks = 0;
     }
+
+    public bool CanBeRunAgain => completedTasks < 20;
 
     private IEnumerator StartTask()
     {
@@ -44,19 +51,27 @@ public class TaskManager : MonoBehaviour
 
     public void StartTasks()
     {
-        isRunning = true;
-        screenIntroText.SetActive(true);
-        StartCoroutine(StartTask());
+        if (CanBeRunAgain)
+        {
+            isRunning = true;
+            screenIntroText.SetActive(true);
+            StartCoroutine(StartTask());
+        }
     }
 
     public void StopTasks() => isRunning = false;
 
-    private IEnumerator TaskEndImage(GameObject imageObject)
+    private IEnumerator TaskEndImage(GameObject imageObject, bool isDone = false)
     {
         yield return new WaitForSeconds(1f);
         imageObject.SetActive(false);
-        screenIntroText.SetActive(true);
-        StartCoroutine(StartTask());
+        if (!isDone)
+        {
+            screenIntroText.SetActive(true);
+            StartCoroutine(StartTask());
+        }
+        else
+            screenEndingText.SetActive(true);
     }
 
     public void Failure()
@@ -89,7 +104,9 @@ public class TaskManager : MonoBehaviour
             currentTask.gameObject.SetActive(false);
             currentTask.Teardown();
             currentTask = null;
-            StartCoroutine(TaskEndImage(successImage));
+            ++completedTasks;
+            completedTasksUGUI.text = string.Format("{0}/20 completed tasks", completedTasks);
+            StartCoroutine(TaskEndImage(successImage, !CanBeRunAgain));
         }
     }
 }

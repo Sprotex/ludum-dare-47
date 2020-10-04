@@ -19,7 +19,7 @@ public class TaskMachine : MonoBehaviour
 
     public void AccessTask()
     {
-        if (!manager.isRunning)
+        if (!manager.isRunning && manager.CanBeRunAgain)
         {
             playerCinemachineCamera.SetActive(false);
             cursorLocker.Unlock();
