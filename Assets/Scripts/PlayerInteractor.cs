@@ -6,6 +6,7 @@ public class PlayerInteractor : MonoBehaviour
     public Camera mainCamera;
     public float interactingDistance;
     public TextMeshProUGUI noticeTextGUI;
+    public GameObject noticeBackground;
 
     private TaskManager manager;
     private string currentNoticeText;
@@ -16,6 +17,7 @@ public class PlayerInteractor : MonoBehaviour
     {
         manager = TaskManager.instance;
         noticeTextGUI.text = "";
+        noticeBackground.SetActive(false);
         lastFocusedGameObject = null;
         focusedGameObject = null;
     }
@@ -56,6 +58,7 @@ public class PlayerInteractor : MonoBehaviour
         {
             lastFocusedGameObject = focusedGameObject;
             noticeTextGUI.text = currentNoticeText;
+            noticeBackground.SetActive(currentNoticeText != "");
         }
     }
 }
