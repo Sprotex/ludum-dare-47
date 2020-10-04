@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
-public class TaskMachine : MonoBehaviour
+public class TaskMachine : Interactable
 {
     private TaskManager manager;
 
     public GameObject playerCinemachineCamera;
     public CursorLocker cursorLocker;
-    public string accessText;
 
     private void Start() => manager = TaskManager.instance;
 
@@ -17,7 +16,7 @@ public class TaskMachine : MonoBehaviour
                 StopAccessingTask();
     }
 
-    public void AccessTask()
+    public override void AccessTask()
     {
         if (!manager.isRunning && manager.CanBeRunAgain)
         {

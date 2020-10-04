@@ -31,7 +31,7 @@ public class PlayerInteractor : MonoBehaviour
         var maxDistance = interactingDistance;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out var info, maxDistance))
         {
-            var task = info.collider.GetComponent<TaskMachine>();
+            var task = info.collider.GetComponent<Interactable>();
             if (task != null)
             {
                 if (manager.CanBeRunAgain)
