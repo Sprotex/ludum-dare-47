@@ -6,6 +6,7 @@ public class TaskMachine : Interactable
 
     public GameObject playerCinemachineCamera;
     public CursorLocker cursorLocker;
+    public PlayerMovement playerMovement;
 
     private void Start() => manager = TaskManager.instance;
 
@@ -23,6 +24,7 @@ public class TaskMachine : Interactable
             playerCinemachineCamera.SetActive(false);
             cursorLocker.Unlock();
             manager.StartTasks();
+            playerMovement.enabled = false;
         }
     }
 
@@ -34,6 +36,7 @@ public class TaskMachine : Interactable
             manager.StopTasks();
             cursorLocker.Lock();
         }
+        playerMovement.enabled = true;
     }
 
     public void TaskSuccess() => manager.Success();
