@@ -10,6 +10,13 @@ public class TaskMachine : MonoBehaviour
 
     private void Start() => manager = TaskManager.instance;
 
+    private void Update()
+    {
+        if (manager.isRunning)
+            if (Input.GetButtonDown("Access PC"))
+                StopAccessingTask();
+    }
+
     public void AccessTask()
     {
         if (!manager.isRunning)
@@ -25,6 +32,7 @@ public class TaskMachine : MonoBehaviour
         if (manager.isRunning)
         {
             playerCinemachineCamera.SetActive(true);
+            manager.StopTasks();
             cursorLocker.Lock();
         }
     }

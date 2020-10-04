@@ -22,28 +22,36 @@ public class TaskManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void StartTasks()
+    private void Start() => currentTask = null;
+
+    private IEnumerator StartTask()
     {
-        screenIntroText.SetActive(false);
-        isRunning = true;
+        yield return new WaitForSeconds(1f);
         //var index = Random.Range(0, tasks.Length);
-        var index = tasks.Length - 1;
-        currentTask = tasks[index];
-        currentTask.Setup();
+        screenIntroText.SetActive(false);
+        if (currentTask == null)
+        {
+            var index = tasks.Length - 1;
+            currentTask = tasks[index];
+            currentTask.Setup();
+        }
     }
 
-    public void StopTasks()
+    public void StartTasks()
     {
-        isRunning = false;
-        if (currentTask != null && currentTask.isActiveAndEnabled)
-            currentTask.Teardown();
+        isRunning = true;
+        screenIntroText.SetActive(true);
+        StartCoroutine(StartTask());
     }
+
+    public void StopTasks() => isRunning = false;
 
     private IEnumerator TaskEndImage(GameObject imageObject)
     {
         yield return new WaitForSeconds(1f);
         imageObject.SetActive(false);
         screenIntroText.SetActive(true);
+        StartCoroutine(StartTask());
     }
 
     public void Failure()
@@ -51,6 +59,7 @@ public class TaskManager : MonoBehaviour
         failureImage.SetActive(true);
         currentTask.gameObject.SetActive(false);
         currentTask.Teardown();
+        currentTask = null;
         StartCoroutine(TaskEndImage(failureImage));
     }
 
@@ -62,10 +71,7 @@ public class TaskManager : MonoBehaviour
             Failure();
     }
 
-    public void Success()
-    {
-        StartCoroutine(DelayedSuccess());
-    }
+    public void Success() => StartCoroutine(DelayedSuccess());
 
     private IEnumerator DelayedSuccess()
     {
@@ -76,6 +82,7 @@ public class TaskManager : MonoBehaviour
             successImage.SetActive(true);
             currentTask.gameObject.SetActive(false);
             currentTask.Teardown();
+            currentTask = null;
             StartCoroutine(TaskEndImage(successImage));
         }
     }

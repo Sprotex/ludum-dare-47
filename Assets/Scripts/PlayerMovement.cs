@@ -6,11 +6,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraTransform;
     public float maxMoveSpeed;
 
-    private void Update()
-    {
-        Translate();
-        Rotate();
-    }
+    private Vector3 gravityMovement = Vector3.zero;
+    private void Update() => Translate();
 
     private void Translate()
     {
@@ -22,10 +19,10 @@ public class PlayerMovement : MonoBehaviour
         if (motionVector.sqrMagnitude > 1f)
             motionVector.Normalize();
         controller.Move(motionVector * maxMoveSpeed * Time.deltaTime);
-    }
-
-    private void Rotate()
-    {
-        
+        if (controller.isGrounded)
+            gravityMovement = Vector3.zero;
+        else
+            gravityMovement += Physics.gravity * Time.deltaTime;
+        controller.Move(gravityMovement * Time.deltaTime);
     }
 }
