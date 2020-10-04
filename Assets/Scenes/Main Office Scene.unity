@@ -9407,6 +9407,7 @@ MonoBehaviour:
   fadeoutOverlay: {fileID: 535784710}
   playerMovement: {fileID: 1986155223}
   playerInteractor: {fileID: 587765909}
+  sounds: {fileID: 1258096668}
 --- !u!65 &1258096666
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9420,6 +9421,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4681325, y: 1.9999998, z: 3.5210316}
   m_Center: {x: -6.4943447, y: -6.0547004, z: 0.80858016}
+--- !u!114 &1258096668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258096662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c0a07f50d7f7a42b0092721ef49952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDoorEvent: event:/Door
 --- !u!1 &1272235148
 GameObject:
   m_ObjectHideFlags: 0
@@ -15513,6 +15527,7 @@ GameObject:
   - component: {fileID: 1986155225}
   - component: {fileID: 1986155224}
   - component: {fileID: 1986155223}
+  - component: {fileID: 1986155227}
   m_Layer: 0
   m_Name: Player Prototype
   m_TagString: Untagged
@@ -15616,6 +15631,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986155221}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1986155227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986155221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ec43161bf4e6543b873768643a1d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepEvent: event:/Step 2
+  controller: {fileID: 1986155224}
 --- !u!1 &1991026159
 GameObject:
   m_ObjectHideFlags: 0

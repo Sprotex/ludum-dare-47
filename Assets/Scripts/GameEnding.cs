@@ -7,9 +7,11 @@ public class GameEnding : Interactable
     public Image fadeoutOverlay;
     public PlayerMovement playerMovement;
     public PlayerInteractor playerInteractor;
+    public DoorSounds sounds;
 
     private IEnumerator Fadeout()
     {
+        sounds.PlaySound();
         playerMovement.enabled = false;
         playerInteractor.enabled = false;
         var interpolationCount = 30;
