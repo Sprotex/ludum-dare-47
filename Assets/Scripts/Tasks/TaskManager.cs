@@ -27,11 +27,11 @@ public class TaskManager : MonoBehaviour
     private IEnumerator StartTask()
     {
         yield return new WaitForSeconds(1f);
-        //var index = Random.Range(0, tasks.Length);
         screenIntroText.SetActive(false);
         if (currentTask == null)
         {
-            var index = tasks.Length - 1;
+            var index = Random.Range(0, tasks.Length);
+            //var index = tasks.Length - 1;
             currentTask = tasks[index];
             currentTask.Setup();
         }
