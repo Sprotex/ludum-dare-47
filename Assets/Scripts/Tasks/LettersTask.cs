@@ -9,7 +9,7 @@ public class LettersTask : MonoBehaviour
     public TMPro.TextMeshProUGUI inputGUI;
     public int textLength = 5;
 
-    public const string LETTERS = "abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ23456789,.:?!";
+    public const string LETTERS = "abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ23456789.";
 
     public void ScrambleText()
     {
