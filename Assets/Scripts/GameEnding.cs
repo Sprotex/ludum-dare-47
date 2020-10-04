@@ -8,9 +8,11 @@ public class GameEnding : Interactable
     public PlayerMovement playerMovement;
     public PlayerInteractor playerInteractor;
     public DoorSounds sounds;
+    public GameObject groupToDisable;
 
     private IEnumerator Fadeout()
     {
+        groupToDisable.SetActive(false);
         sounds.PlaySound();
         playerMovement.enabled = false;
         playerInteractor.enabled = false;
