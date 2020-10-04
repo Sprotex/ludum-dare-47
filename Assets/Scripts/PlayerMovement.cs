@@ -18,11 +18,10 @@ public class PlayerMovement : MonoBehaviour
         var motionVector = movementForward * vertical + movementRight * horizontal;
         if (motionVector.sqrMagnitude > 1f)
             motionVector.Normalize();
-        controller.Move(motionVector * maxMoveSpeed * Time.deltaTime);
         if (controller.isGrounded)
             gravityMovement = Vector3.zero;
         else
             gravityMovement += Physics.gravity * Time.deltaTime;
-        controller.Move(gravityMovement * Time.deltaTime);
+        controller.Move(motionVector * maxMoveSpeed * Time.deltaTime + gravityMovement * Time.deltaTime);
     }
 }
