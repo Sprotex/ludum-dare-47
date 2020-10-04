@@ -27,11 +27,11 @@ public class ColorTask : MonoBehaviour
         for (var i = 4; i < gridColors.Length; ++i)
             do
             {
-                var nr = r + (Random.value - .5f) * .2f;
-                var ng = g + (Random.value - .5f) * .2f;
-                var nb = b + (Random.value - .5f) * .2f;
+                var nr = r + (Random.value - .5f) * .3f;
+                var ng = g + (Random.value - .5f) * .3f;
+                var nb = b + (Random.value - .5f) * .3f;
                 gridColors[i] = new Color(nr, ng, nb);
-            } while (ColDist(gridColors[i], correctAnswer) < 0.05f);
+            } while (ColDist(gridColors[i], correctAnswer) < 0.1f);
         for (var i = gridColors.Length - 1; i >= 1; --i)
         {
             var index = Random.Range(0, i);
@@ -41,7 +41,6 @@ public class ColorTask : MonoBehaviour
         }
         for (var i = 0; i < gridColors.Length; ++i)
             inputToggles[i].colorImage.color = gridColors[i];
-        //title.text = string.Format("{0} + {1} = ?", a, b);
     }
 
     public void Setup() => GenerateCorrectAnswer();
