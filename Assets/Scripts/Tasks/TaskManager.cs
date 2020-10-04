@@ -14,6 +14,7 @@ public class TaskManager : MonoBehaviour
     [HideInInspector]
     public bool isRunning;
     public TextMeshProUGUI completedTasksUGUI;
+    public TaskSounds soundManager;
     private int completedTasks;
     private int taskIndex;
     private GeneralTask currentTask;
@@ -76,6 +77,7 @@ public class TaskManager : MonoBehaviour
 
     public void Failure()
     {
+        soundManager.Failure();
         failureImage.SetActive(true);
         currentTask.gameObject.SetActive(false);
         currentTask.Teardown();
@@ -100,6 +102,7 @@ public class TaskManager : MonoBehaviour
         yield return waitInstruction;
         if (cachedTask.hasSucceeded)
         {
+            soundManager.Success();
             successImage.SetActive(true);
             currentTask.gameObject.SetActive(false);
             currentTask.Teardown();
