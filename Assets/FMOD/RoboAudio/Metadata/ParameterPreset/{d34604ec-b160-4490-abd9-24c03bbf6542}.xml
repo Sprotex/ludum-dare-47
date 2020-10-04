@@ -15,5 +15,28 @@
 		<property name="initialValue">
 			<value>0</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{cd72fe30-0347-4d65-913a-e4a864e67b7d}</destination>
+		</relationship>
+	</object>
+	<object class="LFOModulator" id="{cd72fe30-0347-4d65-913a-e4a864e67b7d}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+		<property name="shape">
+			<value>6</value>
+		</property>
+		<property name="rate">
+			<value>0.539999962</value>
+		</property>
+		<property name="phase">
+			<value>18</value>
+		</property>
+		<property name="depth">
+			<value>100</value>
+		</property>
+		<property name="direction">
+			<value>40</value>
+		</property>
 	</object>
 </objects>
