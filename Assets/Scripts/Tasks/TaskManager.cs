@@ -4,11 +4,16 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     public static TaskManager instance;
+    public GameObject screenIntroText;
+    public GameObject successImage;
+    public GameObject failureImage;
     public GeneralTask[] tasks;
     public float delayAfterSuccess = 0.5f;
+    [HideInInspector]
+    public bool isRunning;
 
     private GeneralTask currentTask;
-    
+
     private void Awake()
     {
         if (instance == null)
@@ -19,18 +24,34 @@ public class TaskManager : MonoBehaviour
 
     public void StartTasks()
     {
+        screenIntroText.SetActive(false);
+        isRunning = true;
         //var index = Random.Range(0, tasks.Length);
         var index = tasks.Length - 1;
         currentTask = tasks[index];
         currentTask.Setup();
     }
 
+    public void StopTasks()
+    {
+        isRunning = false;
+        if (currentTask != null && currentTask.isActiveAndEnabled)
+            currentTask.Teardown();
+    }
+
+    private IEnumerator TaskEndImage(GameObject imageObject)
+    {
+        yield return new WaitForSeconds(1f);
+        imageObject.SetActive(false);
+        screenIntroText.SetActive(true);
+    }
+
     public void Failure()
     {
-        print("Current task has FAILED!");
+        failureImage.SetActive(true);
         currentTask.gameObject.SetActive(false);
         currentTask.Teardown();
-
+        StartCoroutine(TaskEndImage(failureImage));
     }
 
     public void TaskState(bool isCompleted)
@@ -52,9 +73,10 @@ public class TaskManager : MonoBehaviour
         yield return waitInstruction;
         if (currentTask.hasSucceeded)
         {
-            print("Current task has succeeded.");
+            successImage.SetActive(true);
             currentTask.gameObject.SetActive(false);
             currentTask.Teardown();
+            StartCoroutine(TaskEndImage(successImage));
         }
     }
 }

@@ -12,17 +12,21 @@ public class TaskMachine : MonoBehaviour
 
     public void AccessTask()
     {
-        screenOverlay.SetActive(true);
-        playerCinemachineCamera.SetActive(false);
-        cursorLocker.Unlock();
-        manager.StartTasks();
+        if (!manager.isRunning)
+        {
+            playerCinemachineCamera.SetActive(false);
+            cursorLocker.Unlock();
+            manager.StartTasks();
+        }
     }
 
     public void StopAccessingTask()
     {
-        screenOverlay.SetActive(false);
-        playerCinemachineCamera.SetActive(true);
-        cursorLocker.Lock();
+        if (manager.isRunning)
+        {
+            playerCinemachineCamera.SetActive(true);
+            cursorLocker.Lock();
+        }
     }
 
     public void TaskSuccess() => manager.Success();
