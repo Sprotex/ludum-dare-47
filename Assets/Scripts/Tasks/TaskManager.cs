@@ -11,7 +11,7 @@ public class TaskManager : MonoBehaviour
     public float delayAfterSuccess = 0.5f;
     [HideInInspector]
     public bool isRunning;
-
+    private int taskIndex;
     private GeneralTask currentTask;
 
     private void Awake()
@@ -22,7 +22,11 @@ public class TaskManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start() => currentTask = null;
+    private void Start()
+    {
+        currentTask = null;
+        taskIndex = 0;
+    }
 
     private IEnumerator StartTask()
     {
@@ -30,10 +34,11 @@ public class TaskManager : MonoBehaviour
         screenIntroText.SetActive(false);
         if (currentTask == null)
         {
-            var index = Random.Range(0, tasks.Length);
-            //var index = tasks.Length - 1;
-            currentTask = tasks[index];
+            if (taskIndex >= tasks.Length)
+                taskIndex = 0;
+            currentTask = tasks[taskIndex];
             currentTask.Setup();
+            taskIndex = taskIndex + 1;
         }
     }
 
@@ -75,9 +80,10 @@ public class TaskManager : MonoBehaviour
 
     private IEnumerator DelayedSuccess()
     {
+        var cachedTask = currentTask;
         var waitInstruction = new WaitForSeconds(delayAfterSuccess);
         yield return waitInstruction;
-        if (currentTask.hasSucceeded)
+        if (cachedTask.hasSucceeded)
         {
             successImage.SetActive(true);
             currentTask.gameObject.SetActive(false);

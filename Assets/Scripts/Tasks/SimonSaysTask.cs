@@ -49,6 +49,11 @@ public class SimonSaysTask : MonoBehaviour
 
     public void ButtonMessage(int number)
     {
+        if (index >= order.Length)
+        {
+            manager.Failure();
+            return;
+        }
         if (order[index] != number)
         {
             manager.Failure();
