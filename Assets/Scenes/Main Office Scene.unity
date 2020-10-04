@@ -12227,6 +12227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openDoorEvent: event:/Door
+  outroEvent: event:/Outro
 --- !u!1 &1272235148
 GameObject:
   m_ObjectHideFlags: 0

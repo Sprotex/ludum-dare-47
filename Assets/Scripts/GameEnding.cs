@@ -32,6 +32,10 @@ public class GameEnding : Interactable
             color.a = i / (float) (interpolationCount - 1);
             fadeoutOverlay.color = color;
         }
+        sounds.PlayOutro();
+        yield return new WaitForSeconds(3.3f);
+        // Load level again!
+        // show time
     }
 
     public override void AccessTask() => StartCoroutine(Fadeout());
