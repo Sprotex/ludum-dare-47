@@ -8,16 +8,15 @@ public class IntroDirector : MonoBehaviour
     public string introEvent;
     public GameObject music;
 
-    public float firstTileSlide = 0.335f;
-    public float secondTileSlide = 0.661f;
-    public float thirdTileSlide = 1f;
+    public Fader firstFader;
+    public Fader secondFader;
+    public Fader thirdFader;
 
     public float zeroTileDuration = 5f;
     public float firstTileDuration;
     public float secondTileDuration;
     public float thirdTileDuration;
 
-    public Image fillImage;
     public SceneLoader loader;
     public GameObject introCanvas;
 
@@ -25,14 +24,14 @@ public class IntroDirector : MonoBehaviour
 
     private IEnumerator ThirdScene()
     {
-        fillImage.fillAmount = thirdTileSlide;
+        thirdFader.FadeOut();
         yield return new WaitForSeconds(thirdTileDuration);
         loader.LoadLevel();
     }
 
     private IEnumerator SecondScene()
     {
-        fillImage.fillAmount = secondTileSlide;
+        secondFader.FadeOut();
         yield return new WaitForSeconds(secondTileDuration);
         StartCoroutine(ThirdScene());
     }
@@ -44,7 +43,7 @@ public class IntroDirector : MonoBehaviour
         soundInstance = FMODUnity.RuntimeManager.CreateInstance(introEvent);
         soundInstance.start();
         yield return new WaitForSeconds(zeroTileDuration);
-        fillImage.fillAmount = firstTileSlide;
+        firstFader.FadeOut();
         yield return new WaitForSeconds(firstTileDuration);
         StartCoroutine(SecondScene());
     }
