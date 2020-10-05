@@ -12,7 +12,6 @@ public class CinemachineSensitivitySettings : MonoBehaviour
         var sensitivity = PlayerPrefs.GetFloat(Settings.actualSensitivityKey, 1f);
         var maxSpeed = sensitivity * 300;
         var pov = cmCamera.GetCinemachineComponent<CinemachinePOV>();
-        print(sensitivity);
         pov.m_HorizontalAxis.m_MaxSpeed = maxSpeed;
         pov.m_VerticalAxis.m_MaxSpeed = maxSpeed;
     }
