@@ -9030,7 +9030,7 @@ MonoBehaviour:
   - {fileID: 231975385}
   - {fileID: 20134845}
   - {fileID: 1903072499}
-  randomTimeOffset: {x: 3, y: 3}
+  randomTimeOffset: {x: 3, y: 4}
 --- !u!1 &873136817
 GameObject:
   m_ObjectHideFlags: 0

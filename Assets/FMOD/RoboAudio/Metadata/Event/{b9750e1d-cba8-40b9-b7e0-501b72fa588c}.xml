@@ -53,7 +53,7 @@
 			<destination>{43c0c8c1-d1b6-4e1e-b1f2-3b4dd2019157}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{4042faf8-a7fe-4c5e-ad21-f8e966a79b07}</destination>
+			<destination>{49e0a983-8e92-4e00-b1dd-745da8a1f1d3}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{59a640aa-2532-4556-9a73-4326558e0d04}" />
@@ -92,9 +92,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{43c0c8c1-d1b6-4e1e-b1f2-3b4dd2019157}" />
 	<object class="MultiSound" id="{1cf3c435-d5a6-4cc4-8026-ee61c7d75dbd}">
-		<property name="triggerProbabilityEnabled">
-			<value>true</value>
-		</property>
 		<property name="triggerProbability">
 			<value>34.5</value>
 		</property>
@@ -335,7 +332,7 @@
 	</object>
 	<object class="MixerSend" id="{985d54c7-a2c9-4ab6-b9f0-49e74567ca35}">
 		<property name="level">
-			<value>-19</value>
+			<value>-12.5</value>
 		</property>
 		<property name="inputFormat">
 			<value>2</value>
