@@ -10,6 +10,7 @@ public class PlayerSounds : MonoBehaviour
 
     private void PlaySound()
     {
+        print(isMoving);
         if (!isMoving)
             return;
         var instance = FMODUnity.RuntimeManager.CreateInstance(stepEvent);
@@ -18,6 +19,6 @@ public class PlayerSounds : MonoBehaviour
         instance.release();
     }
 
-    private void Update() => isMoving = controller.isGrounded && controller.velocity.sqrMagnitude > 0.01f;
+    private void Update() => isMoving = controller.velocity.sqrMagnitude > 0.01f;
     private void Start() => InvokeRepeating(nameof(PlaySound), 0f, .5f);
 }
