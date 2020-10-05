@@ -56,8 +56,11 @@ public class TaskManager : MonoBehaviour
         if (CanBeRunAgain)
         {
             isRunning = true;
-            screenIntroText.SetActive(true);
-            StartCoroutine(StartTask());
+            if (currentTask == null)
+            {
+                screenIntroText.SetActive(true);
+                StartCoroutine(StartTask());
+            }
         }
     }
 
