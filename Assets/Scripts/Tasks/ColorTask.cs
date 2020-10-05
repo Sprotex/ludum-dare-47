@@ -12,7 +12,7 @@ public class ColorTask : MonoBehaviour
 
     private void Start() => manager = TaskManager.instance;
     private float FloatDist(float a, float b) => Mathf.Abs(a - b);
-    private float ColDist(Color a, Color b) => Mathf.Max(FloatDist(a.r, b.r), FloatDist(a.g, b.g), FloatDist(a.b, b.b));
+    private float ColDist(Color a, Color b) => Mathf.Min(FloatDist(a.r, b.r), FloatDist(a.g, b.g), FloatDist(a.b, b.b));
 
     private void GenerateCorrectAnswer()
     {
@@ -27,11 +27,11 @@ public class ColorTask : MonoBehaviour
         for (var i = 4; i < gridColors.Length; ++i)
             do
             {
-                var nr = r + (Random.value - .5f) * .3f;
-                var ng = g + (Random.value - .5f) * .3f;
-                var nb = b + (Random.value - .5f) * .3f;
+                var nr = r + (Random.value - .5f) * .8f;
+                var ng = g + (Random.value - .5f) * .8f;
+                var nb = b + (Random.value - .5f) * .8f;
                 gridColors[i] = new Color(nr, ng, nb);
-            } while (ColDist(gridColors[i], correctAnswer) < 0.15f);
+            } while (ColDist(gridColors[i], correctAnswer) < 0.2f);
         for (var i = gridColors.Length - 1; i >= 1; --i)
         {
             var index = Random.Range(0, i);
