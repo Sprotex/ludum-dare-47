@@ -31,7 +31,7 @@ public class ColorTask : MonoBehaviour
                 var ng = g + (Random.value - .5f) * .3f;
                 var nb = b + (Random.value - .5f) * .3f;
                 gridColors[i] = new Color(nr, ng, nb);
-            } while (ColDist(gridColors[i], correctAnswer) < 0.1f);
+            } while (ColDist(gridColors[i], correctAnswer) < 0.15f);
         for (var i = gridColors.Length - 1; i >= 1; --i)
         {
             var index = Random.Range(0, i);
