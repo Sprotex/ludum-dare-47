@@ -8894,7 +8894,7 @@ MonoBehaviour:
   - {fileID: 1361424472}
   - {fileID: 1843060961}
   - {fileID: 1628401365}
-  delayAfterSuccess: 0.5
+  delayAfterSuccess: 0.2
   isRunning: 0
   completedTasksUGUI: {fileID: 463404270}
   soundManager: {fileID: 816304741}
@@ -15862,7 +15862,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1485524856}
   - component: {fileID: 1485524855}
-  - component: {fileID: 1485524857}
   m_Layer: 0
   m_Name: PC Light
   m_TagString: Untagged
@@ -15881,8 +15880,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.18945049, g: 0.92539275, b: 0.9716981, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
   m_Range: 2.6
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -15945,19 +15944,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1485524857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485524854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a8c1a7fe759e5c40be4ad0a258ca3ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatedLight: {fileID: 1485524855}
 --- !u!1 &1505565898
 GameObject:
   m_ObjectHideFlags: 0
