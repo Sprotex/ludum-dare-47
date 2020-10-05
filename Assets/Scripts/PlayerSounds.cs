@@ -10,7 +10,6 @@ public class PlayerSounds : MonoBehaviour
 
     private void PlaySound()
     {
-        print(isMoving);
         if (!isMoving)
             return;
         var instance = FMODUnity.RuntimeManager.CreateInstance(stepEvent);
