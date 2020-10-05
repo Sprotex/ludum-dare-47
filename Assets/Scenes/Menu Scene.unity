@@ -1285,7 +1285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1294892128559850198, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
       propertyPath: m_Intensity
-      value: 1.25
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: -1294892128559850198, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
       propertyPath: m_Type
@@ -1298,6 +1298,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
       propertyPath: m_Name
       value: Objects
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974984522306558807, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050422055867433376, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5958438921693756439, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
       propertyPath: m_Intensity
@@ -1325,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8912049515002365231, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 8912049515002365231, guid: 550b128a615bbc048a46d97de2f0824f, type: 3}
       propertyPath: m_Enabled
@@ -2182,6 +2190,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154699109}
   m_CullTransparentMesh: 0
+--- !u!1 &1199203794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1199203796}
+  - component: {fileID: 1199203795}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1199203795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199203794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/MenuMusic
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!4 &1199203796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199203794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264696886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,11 +2434,11 @@ RectTransform:
   m_Father: {fileID: 2021379339}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 38, y: 68}
-  m_SizeDelta: {x: 728.87427, y: 426.69507}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 108}
+  m_SizeDelta: {x: 556.7361, y: 426.69507}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1304642032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2582,6 +2644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introEvent: event:/Intro
+  music: {fileID: 1199203794}
   firstTileSlide: 0.335
   secondTileSlide: 0.661
   thirdTileSlide: 1
@@ -3475,7 +3538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -28.177979, y: 0}
   m_SizeDelta: {x: 795.05225, y: 256.47095}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1986531611
@@ -3485,7 +3548,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986531609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

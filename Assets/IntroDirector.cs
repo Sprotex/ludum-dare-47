@@ -6,6 +6,7 @@ public class IntroDirector : MonoBehaviour
 {
     [FMODUnity.EventRef]
     public string introEvent;
+    public GameObject music;
 
     public float firstTileSlide = 0.335f;
     public float secondTileSlide = 0.661f;
@@ -38,6 +39,7 @@ public class IntroDirector : MonoBehaviour
 
     private IEnumerator FirstScene()
     {
+        music.SetActive(false);
         introCanvas.SetActive(true);
         soundInstance = FMODUnity.RuntimeManager.CreateInstance(introEvent);
         soundInstance.start();
