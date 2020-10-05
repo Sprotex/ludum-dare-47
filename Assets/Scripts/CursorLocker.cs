@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CursorLocker : MonoBehaviour
 {
     public GraphicRaycaster screenMouseCatcher;
+    public GameObject settingsPanel;
+    public CinemachineVirtualCamera lockedCamera;
+    public CinemachineVirtualCamera realCamera;
 
     private void Start() => Cursor.lockState = CursorLockMode.Locked;
 
@@ -12,6 +16,14 @@ public class CursorLocker : MonoBehaviour
         var isSwitchingLockState = Input.GetButtonDown("Access PC");
         if (isSwitchingLockState)
             Cursor.lockState = (Cursor.lockState == CursorLockMode.Confined) ? CursorLockMode.None : CursorLockMode.Locked;
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            settingsPanel.SetActive(true);
+            Unlock();
+            lockedCamera.Priority = 11;
+            lockedCamera.ForceCameraPosition(realCamera.transform.position, realCamera.transform.rotation);
+        }
+
     }
 
     public void Unlock()

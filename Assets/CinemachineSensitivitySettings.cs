@@ -7,7 +7,7 @@ public class CinemachineSensitivitySettings : MonoBehaviour
 {
     public CinemachineVirtualCamera cmCamera;
     
-    private void Start()
+    private void OnEnable()
     {
         var sensitivity = PlayerPrefs.GetFloat(Settings.actualSensitivityKey, 1f);
         var maxSpeed = sensitivity * 300;

@@ -12,6 +12,24 @@ public class Settings : MonoBehaviour
     public Slider volumeSlider;
     public Slider sensitivitySlider;
 
+    public static void UpdateValues(float volumeSliderValue, float sensitivitySliderValue)
+    {
+        PlayerPrefs.SetFloat(volumeKey, volumeSliderValue);
+        PlayerPrefs.SetFloat(sensitivityKey, sensitivitySliderValue);
+        var actualSensitivity = 1f;
+        if (sensitivitySliderValue >= 4f)
+        {
+            var t = Mathf.InverseLerp(4f, 8f, sensitivitySliderValue);
+            actualSensitivity = Mathf.Lerp(1f, 4f, t);
+        }
+        if (sensitivitySliderValue < 4f)
+        {
+            var t = Mathf.InverseLerp(0f, 4f, sensitivitySliderValue);
+            actualSensitivity = Mathf.Lerp(1 / 8f, 1f, t);
+        }
+        PlayerPrefs.SetFloat(actualSensitivityKey, actualSensitivity);
+    }
+
     public void UpdateSettings()
     {
         PlayerPrefs.SetFloat(volumeKey, volumeSlider.value);
