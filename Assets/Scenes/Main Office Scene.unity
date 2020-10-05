@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NO
+  m_text: No
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 649ae0e1d8a88d04d9a764c76252e33f, type: 2}
   m_sharedMaterial: {fileID: 7974919315869914067, guid: 649ae0e1d8a88d04d9a764c76252e33f, type: 2}
@@ -7630,7 +7630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YES
+  m_text: Yes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 649ae0e1d8a88d04d9a764c76252e33f, type: 2}
   m_sharedMaterial: {fileID: 7974919315869914067, guid: 649ae0e1d8a88d04d9a764c76252e33f, type: 2}
@@ -22209,7 +22209,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
