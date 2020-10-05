@@ -9,6 +9,9 @@ public class GameEnding : Interactable
     public PlayerInteractor playerInteractor;
     public DoorSounds sounds;
     public GameObject groupToDisable;
+    public GameObject decision;
+    public CursorLocker cursorLocker;
+    public Timer timer;
 
     private void Start()
     {
@@ -33,9 +36,10 @@ public class GameEnding : Interactable
             fadeoutOverlay.color = color;
         }
         sounds.PlayOutro();
+        timer.enabled = false;
         yield return new WaitForSeconds(3.3f);
-        // Load level again!
-        // show time
+        decision.SetActive(true);
+        cursorLocker.Unlock();
     }
 
     public override void AccessTask() => StartCoroutine(Fadeout());
