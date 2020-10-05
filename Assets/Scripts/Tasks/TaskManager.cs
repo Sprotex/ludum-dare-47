@@ -122,7 +122,7 @@ public class TaskManager : MonoBehaviour
             currentTask.Teardown();
             currentTask = null;
             ++completedTasks;
-            completedTasksUGUI.text = string.Format("{0}/20 completed tasks", completedTasks);
+            completedTasksUGUI.text = string.Format("{0}/20", completedTasks);
             StartCoroutine(TaskEndImage(successImage, !CanBeRunAgain));
         }
     }
