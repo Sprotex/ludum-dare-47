@@ -2,24 +2,19 @@
 using UnityEngine;
 
 public class LettersTask : MonoBehaviour
-{
-    private StringBuilder stringBuilder = new StringBuilder();
-    
+{   
     public TMPro.TextMeshProUGUI referenceGUI;
     public TMPro.TextMeshProUGUI inputGUI;
-    public int textLength = 5;
+    public string[] inputs;
 
-    public const string LETTERS = "abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ23456789.";
+    private int index = -1;
 
     public void ScrambleText()
     {
-        stringBuilder.Clear();
-        for (var i = 0; i < textLength; ++i)
-        {
-            var index = Random.Range(0, LETTERS.Length);
-            stringBuilder.Append(LETTERS[index]);
-        }
-        referenceGUI.text = stringBuilder.ToString();
+        ++index;
+        if (index >= inputs.Length)
+            index = 0;
+        referenceGUI.text = inputs[index];
     }
 
     public void CheckCorrectness()
