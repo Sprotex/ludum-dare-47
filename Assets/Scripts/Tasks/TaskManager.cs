@@ -19,6 +19,7 @@ public class TaskManager : MonoBehaviour
     private int completedTasks;
     private int taskIndex;
     private GeneralTask currentTask;
+    private int tasksLength;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class TaskManager : MonoBehaviour
         currentTask = null;
         taskIndex = 0;
         completedTasks = 0;
+        tasksLength = tasks.Length;
     }
 
     public bool CanBeRunAgain => completedTasks < 20;
@@ -43,7 +45,7 @@ public class TaskManager : MonoBehaviour
         screenIntroText.SetActive(false);
         if (currentTask == null)
         {
-            if (taskIndex >= tasks.Length)
+            if (taskIndex >= tasksLength)
                 taskIndex = 0;
             currentTask = tasks[taskIndex];
             currentTask.Setup();
@@ -62,6 +64,11 @@ public class TaskManager : MonoBehaviour
                 StartCoroutine(StartTask());
             }
         }
+    }
+
+    public void ForgetCoffeeTask()
+    {
+        tasksLength--;
     }
 
     public void StopTasks() => isRunning = false;
