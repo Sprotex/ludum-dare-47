@@ -9,7 +9,7 @@ public class CursorLocker : MonoBehaviour
     public CinemachineVirtualCamera lockedCamera;
     public CinemachineVirtualCamera realCamera;
 
-    private void Start() => Cursor.lockState = CursorLockMode.Locked;
+    private void Start() => Lock();
 
     private void Update()
     {
