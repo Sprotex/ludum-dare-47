@@ -36,7 +36,7 @@ public class PlayerInteractor : MonoBehaviour
             var interactable = info.collider.GetComponent<Interactable>();
             if (interactable != null && interactable.enabled)
             {
-                if (manager.CanBeRunAgain)
+                if (manager.CanBeRunAgain || interactable is GameEnding)
                 {
                     if (!manager.isRunning)
                     {
